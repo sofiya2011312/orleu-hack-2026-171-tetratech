@@ -8,7 +8,7 @@ QazaqTrip — это интерактивный туристический ве�
 
 - Сайт: https://arina0283.github.io/Trip/#map-section
 - Презентация: https://canva.link/dus03sitzoonryk
-- Видео: будет добавлено: https://drive.google.com/file/d/13GW4h_UUvQHzWRi2Czalxs2cW22kcJCV/view?usp=drivesdk
+- Видео: https://drive.google.com/file/d/13GW4h_UUvQHzWRi2Czalxs2cW22kcJCV/view?usp=drivesdk
 
 Стек
 
