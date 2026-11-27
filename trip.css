@@ -1,0 +1,1061 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    background: #F8F7F2;
+    color: #1D2B23;
+    font-family: 'DM Sans', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button, input, select {
+    font-family: inherit;
+}
+
+.header {
+    height: 82px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #F8F7F2;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #EAE6DC;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    font-weight: 400;
+}
+
+.header nav {
+    display: flex;
+    gap: 25px;
+}
+
+.header nav a {
+    font-size: 12px;
+    color: #777;
+}
+
+.header nav a:hover {
+    color: #B58B55;
+}
+
+.header-btn {
+    background: #1D2B23;
+    color: white;
+    padding: 14px 19px;
+    font-size: 11px;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 23px;
+}
+
+.hero {
+    min-height: 650px;
+    padding: 70px 8%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 55px;
+}
+
+.eyebrow {
+    color: #B58B55;
+    font-size: 10px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 5vw, 68px);
+    font-weight: 500;
+    line-height: 1.15;
+}
+
+.hero h1 em,
+.section-heading h2 em {
+    color: #A8896D;
+    font-weight: 500;
+}
+
+.hero-content > p:not(.eyebrow) {
+    color: #85857E;
+    font-size: 14px;
+    line-height: 1.9;
+    margin: 25px 0;
+    max-width: 470px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.main-btn {
+    background: #1D2B23;
+    color: white;
+    border: none;
+    padding: 16px 23px;
+    font-size: 12px;
+    cursor: pointer;
+    display: inline-block;
+    transition: .3s;
+}
+
+.main-btn:hover {
+    background: #B58B55;
+}
+
+.secondary-btn {
+    font-size: 12px;
+    border-bottom: 1px solid #B58B55;
+    padding: 12px 0;
+}
+
+.stats {
+    display: flex;
+    gap: 45px;
+    margin-top: 55px;
+}
+
+.stats div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.stats strong {
+    font: 500 30px 'Playfair Display', serif;
+}
+
+.stats span {
+    color: #85857E;
+    font-size: 10px;
+}
+
+.hero-image {
+    height: 450px;
+    position: relative;
+    border-radius: 190px 190px 3px 3px;
+    overflow: hidden;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-caption {
+    position: absolute;
+    bottom: 0;
+    padding: 28px;
+    width: 100%;
+    color: white;
+    background: linear-gradient(transparent, #000B);
+}
+
+.image-caption span {
+    font-size: 10px;
+    color: #E1C39B;
+    letter-spacing: 2px;
+}
+
+.image-caption h3 {
+    font: 500 23px 'Playfair Display', serif;
+    margin-top: 10px;
+}
+
+.section {
+    padding: 95px 8%;
+}
+
+#explore {
+    background: #F0EEE7;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 30px;
+    margin-bottom: 35px;
+}
+
+.section-heading h2 {
+    font: 500 46px 'Playfair Display', serif;
+}
+
+.section-heading > p {
+    max-width: 390px;
+    color: #85857E;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.search-panel,
+.map-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.search-panel input,
+.search-panel select,
+.map-toolbar select {
+    padding: 14px;
+    background: white;
+    border: 1px solid #DED9CE;
+    outline-color: #B58B55;
+}
+
+.search-panel input {
+    flex: 1;
+    min-width: 200px;
+}
+
+.search-panel button,
+.map-toolbar button {
+    padding: 14px 22px;
+    background: #1D2B23;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.loading-text {
+    font-size: 12px;
+    color: #888;
+    margin: 15px 0;
+}
+
+.places-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.place-card {
+    background: white;
+    border: 1px solid #E8E3D9;
+    padding: 19px;
+    transition: .25s;
+}
+
+.place-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px #0000000D;
+}
+
+.place-card h3 {
+    font: 500 20px 'Playfair Display', serif;
+    margin-bottom: 9px;
+}
+
+.place-card p {
+    color: #85857E;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.place-tag {
+    display: inline-block;
+    color: #A47E50;
+    font-size: 9px;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.place-card button {
+    margin-top: 15px;
+    padding: 10px;
+    background: #F0EEE7;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    color: #1D2B23;
+    font-size: 11px;
+}
+
+.map-section {
+    background: #F8F7F2;
+}
+
+.section-description {
+    color: #85857E;
+    font-size: 13px;
+    line-height: 1.8;
+    margin: 18px 0 30px;
+}
+
+#mainMap {
+    width: 100%;
+    height: 540px;
+    border: 1px solid #E5E0D5;
+}
+
+.map-note {
+    font-size: 10px;
+    color: #85857E;
+    margin-top: 12px;
+}
+
+.route-section {
+    background: #F0EEE7;
+}
+
+.route-box {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 22px;
+}
+
+.route-information,
+.route-map-wrapper {
+    background: white;
+    padding: 25px;
+    border: 1px solid #E5E0D5;
+}
+
+.route-information h3 {
+    font: 500 25px 'Playfair Display', serif;
+    margin-bottom: 20px;
+}
+
+.selected-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #EEEAE2;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 12px;
+}
+
+.selected-item button {
+    border: none;
+    background: transparent;
+    color: #A45F4B;
+    cursor: pointer;
+}
+
+#buildRouteButton {
+    width: 100%;
+    margin-top: 22px;
+}
+
+.clear-btn {
+    background: transparent;
+    border: 1px solid #DDD7CA;
+    padding: 13px;
+    width: 100%;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+#routeMap {
+    height: 460px;
+    width: 100%;
+}
+
+#routeInfo {
+    margin-top: 20px;
+    color: #6E705F;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.planner-section {
+    background: #F8F7F2;
+}
+
+.planner-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    align-items: start;
+}
+
+.planner-form,
+.planner-result {
+    background: white;
+    padding: 32px;
+    border: 1px solid #E5E0D5;
+}
+
+.planner-form h3 {
+    font: 500 25px 'Playfair Display', serif;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 19px;
+}
+
+.form-group label,
+.interests legend {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+    padding: 14px;
+    background: #FAF9F5;
+    border: 1px solid #DDD7CA;
+    outline-color: #B58B55;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.interests {
+    border: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
+    margin-bottom: 22px;
+}
+
+.interests legend {
+    margin-bottom: 13px;
+}
+
+.interests label {
+    font-size: 12px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.interests input {
+    accent-color: #B58B55;
+}
+
+.submit-btn {
+    width: 100%;
+}
+
+.result-placeholder {
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.result-placeholder span {
+    font-size: 50px;
+    color: #B58B55;
+}
+
+.result-placeholder h3 {
+    font: 500 27px 'Playfair Display', serif;
+    margin: 20px 0;
+}
+
+.result-placeholder p {
+    color: #85857E;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.budget-total {
+    background: #1D2B23;
+    color: white;
+    padding: 24px;
+    margin: 20px 0;
+}
+
+.budget-total span {
+    display: block;
+    color: #D6B78F;
+    font-size: 10px;
+    margin-bottom: 10px;
+}
+
+.budget-total strong {
+    font: 500 30px 'Playfair Display', serif;
+}
+
+.budget-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 0;
+    border-bottom: 1px solid #EEEAE2;
+    font-size: 11px;
+}
+
+.trip-day {
+    border-left: 2px solid #B58B55;
+    padding: 5px 0 15px 15px;
+    margin: 16px 0;
+}
+
+.trip-day strong {
+    font: 500 18px 'Playfair Display', serif;
+}
+
+.trip-day p {
+    color: #85857E;
+    font-size: 11px;
+    line-height: 1.8;
+    margin-top: 7px;
+}
+
+.budget-warning {
+    background: #F5EDE0;
+    padding: 15px;
+    color: #795B35;
+    font-size: 11px;
+    line-height: 1.8;
+    margin-top: 18px;
+}
+
+.footer {
+    padding: 35px 8%;
+    border-top: 1px solid #E5E0D5;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.footer p,
+.footer span {
+    font-size: 11px;
+    color: #85857E;
+}
+
+@media(max-width: 900px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-image {
+        height: 370px;
+    }
+
+    .planner-layout,
+    .route-box {
+        grid-template-columns: 1fr;
+    }
+
+    .places-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 600px) {
+    .header {
+        height: auto;
+        padding: 18px 5%;
+        flex-wrap: wrap;
+    }
+
+    .header nav {
+        order: 3;
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero {
+        padding: 55px 5%;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .stats {
+        gap: 20px;
+    }
+
+    .section {
+        padding: 65px 5%;
+    }
+
+    .section-heading {
+        display: block;
+    }
+
+    .section-heading > p {
+        margin-top: 18px;
+    }
+
+    .places-list {
+        grid-template-columns: 1fr;
+    }
+
+    .planner-form,
+    .planner-result {
+        padding: 22px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    #mainMap,
+    #routeMap {
+        height: 380px;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media(max-width:600px) {
+    .header nav {
+        display: none;
+    }
+
+    .header nav.open {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 15px 0;
+    }
+}
+
+#toiletsButton {
+    padding: 14px 22px;
+    background: #B58B55;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Золотые маркеры достопримечательностей */
+
+.attraction-marker {
+    background: transparent;
+    border: none;
+}
+
+.attraction-pin {
+    width: 36px;
+    height: 36px;
+    background: #B58B55;
+    color: white;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+    box-shadow: 0 3px 10px #0004;
+}
+
+/* =================================
+   QAZAQTRIP — PLACE INFORMATION
+================================= */
+
+.place-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(15, 22, 24, 0.75);
+    backdrop-filter: blur(5px);
+    overflow-y: auto;
+    padding: 35px 15px;
+}
+
+.place-modal-content {
+    position: relative;
+    max-width: 850px;
+    margin: 20px auto;
+    padding: 35px;
+    background: #f8f6f1;
+    color: #263536;
+    border-radius: 5px;
+    box-shadow: 0 15px 60px rgba(0,0,0,0.2);
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    border: none;
+    background: transparent;
+    color: #263536;
+    font-size: 35px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.place-modal h2 {
+    font-family: Georgia, serif;
+    font-size: 36px;
+    margin: 20px 0;
+}
+
+.place-modal h3 {
+    font-family: Georgia, serif;
+    font-size: 23px;
+    margin-top: 28px;
+    color: #98734d;
+}
+
+.place-modal p {
+    line-height: 1.8;
+    color: #626b68;
+}
+
+.place-main-image {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-top: 15px;
+    background: #e8e3d9;
+}
+
+.place-image-caption {
+    font-size: 12px;
+    color: #858585;
+    margin-top: 7px;
+}
+
+.place-info-tag {
+    display: inline-block;
+    padding: 7px 13px;
+    background: #eee5d8;
+    color: #98734d;
+    border-radius: 30px;
+    font-size: 12px;
+    margin: 5px 5px 5px 0;
+}
+
+.place-details-button {
+    background: #263536;
+    color: white;
+    border: none;
+    padding: 11px 18px;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: 0.3s;
+}
+
+.place-details-button:hover {
+    background: #ae855a;
+}
+
+.place-action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.place-action-buttons button {
+    padding: 13px 20px;
+    border: none;
+    cursor: pointer;
+    background: #263536;
+    color: white;
+}
+
+.place-action-buttons button:hover {
+    background: #ae855a;
+}
+
+@media (max-width: 600px) {
+    .place-modal-content {
+        padding: 22px;
+    }
+
+    .place-main-image {
+        height: 230px;
+    }
+
+    .place-modal h2 {
+        font-size: 27px;
+    }
+}
+
+
+/* =================================
+   QAZAQTRIP — WEATHER DESIGN
+================================= */
+
+.place-weather {
+    background: #eee9df;
+    padding: 24px;
+    margin: 25px 0;
+    border-radius: 6px;
+}
+
+.weather-current {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin: 20px 0;
+}
+
+.weather-temperature {
+    font-size: 55px;
+    font-family: Georgia, serif;
+    color: #B58B55;
+}
+
+.weather-current p {
+    margin: 7px 0;
+}
+
+.weather-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin: 20px 0;
+    font-size: 14px;
+}
+
+.weather-forecast {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.weather-day {
+    background: #fff;
+    padding: 14px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 13px;
+}
+
+.weather-day strong {
+    color: #263536;
+}
+
+.weather-day small {
+    color: #98734d;
+}
+
+.weather-source {
+    display: block;
+    margin-top: 18px;
+    color: #888;
+}
+
+@media (max-width: 550px) {
+    .weather-forecast {
+        grid-template-columns: 1fr;
+    }
+
+    .weather-details {
+        grid-template-columns: 1fr;
+    }
+}
+
+.food-info {
+    margin-top: 14px;
+    padding: 14px;
+    background: #f5f0e9;
+    border-left: 3px solid #4B2E22;
+    border-radius: 8px;
+}
+
+.food-info h4 {
+    color: #4B2E22;
+    margin: 0 0 10px;
+    font-size: 16px;
+}
+
+.food-info p {
+    color: #51483f;
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 7px 0;
+}
+
+.cafe-marker {
+    background: transparent;
+    border: none;
+}
+
+.cafe-pin {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #4B2E22;
+    color: white;
+    border: 2px solid #E5D2B8;
+    border-radius: 50%;
+    font-size: 17px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
+
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0 15px;
+}
+
+.language-switcher button {
+    background: transparent;
+    color: inherit;
+    border: 1px solid #c5a45a;
+    border-radius: 6px;
+    padding: 7px 10px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.language-switcher button:hover,
+.language-switcher button.active {
+    background: #c5a45a;
+    color: #14251d;
+}
+
+
+/* =================================
+   QAZAQTRIP — KAZAKH CULTURE
+================================= */
+
+.culture-section {
+    background: #F8F7F2;
+}
+
+.culture-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.culture-card {
+    background: #FFFFFF;
+    overflow: hidden;
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.culture-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 14px 35px #00000012;
+}
+
+.culture-card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    display: block;
+}
+
+.culture-card-content {
+    padding: 23px 20px 26px;
+}
+
+.culture-card-content span {
+    color: #B58B55;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.culture-card-content h3 {
+    font: 500 23px 'Playfair Display', serif;
+    color: #1D2B23;
+    margin: 14px 0 12px;
+}
+
+.culture-card-content p {
+    color: #85857E;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.culture-note {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: #1D2B23;
+    color: white;
+    padding: 25px 30px;
+    margin-top: 30px;
+}
+
+.culture-note span {
+    color: #D6B78F;
+    font-size: 27px;
+}
+
+.culture-note p {
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+@media (max-width: 1000px) {
+    .culture-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .culture-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .culture-card img {
+        height: 230px;
+    }
+
+    .culture-note {
+        padding: 20px;
+        align-items: flex-start;
+    }
+}
