@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QazaqTrip — Алматы и область</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <link rel="stylesheet" href="trip.css">
+</head>
+
+
+<body>
+
+<header class="header">
+
+    <a href="#top" class="logo">QAZAQ<span>TRIP</span>.</a>
+
+    <button id="menuToggle" class="menu-toggle">☰</button>
+
+    <nav id="mainNav">
+        <a href="#explore">Места</a>
+        <a href="#map-section">Карта</a>
+        <a href="#route-section">Маршруты</a>
+        <a href="#planner">Планирование</a>
+    </nav>
+
+<div class="language-switcher">
+    <button onclick="changeLanguage('kk')">KZ</button>
+    <button onclick="changeLanguage('ru')">RU</button>
+    <button onclick="changeLanguage('en')">EN</button>
+</div>
+
+    <a href="#planner" class="header-btn">
+        Начать путешествие ↗
+    </a>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="top">
+
+    <div class="hero-content">
+
+        <p class="eyebrow">DISCOVER ALMATY REGION</p>
+
+        <h1>
+            Открой Алматы.<br>
+            <em>Почувствуй свободу.</em>
+        </h1>
+
+        <p>
+            От горных озёр до бескрайних каньонов —
+            исследуй удивительные места Алматинского региона,
+            создавай маршруты и открывай Казахстан.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#explore" class="main-btn">
+                Исследовать места →
+            </a>
+
+            <a href="#planner" class="secondary-btn">
+                Спланировать поездку ↓
+            </a>
+
+        </div>
+
+        <div class="stats">
+            <div><strong>2</strong><span>направления</span></div>
+            <div><strong>∞</strong><span>мест для открытия</span></div>
+            <div><strong>1–7</strong><span>дней путешествия</span></div>
+        </div>
+
+    </div>
+
+    <div class="hero-image">
+        <img
+        src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85"
+        alt="Горный пейзаж">
+
+        <div class="image-caption">
+            <span>ALMATY REGION</span>
+            <h3>Территория больших открытий</h3>
+        </div>
+    </div>
+
+</section>
+
+
+
+<!-- KAZAKH CULTURE -->
+<section class="section culture-section" id="culture">
+
+    <div class="section-heading">
+        <div>
+            <p class="eyebrow">THE SPIRIT OF KAZAKHSTAN</p>
+            <h2>Почувствуй <em>Казахстан.</em></h2>
+        </div>
+
+        <p>
+            Путешествие — это не только новые места.
+            Это знакомство с людьми, традициями и культурой страны.
+        </p>
+    </div>
+
+    <div class="culture-grid">
+
+        <article class="culture-card">
+            <img
+                src="https://tengrinews.kz/userdata/news/2023/news_493502/resize/photo_424348.jpeg"
+                alt="Традиционный дастархан">
+
+            <div class="culture-card-content">
+                <span>01 / ГОСТЕПРИИМСТВО</span>
+                <h3>Гость — особая честь</h3>
+                <p>
+                    Қонақжайлылық — традиция гостеприимства.
+                    Гостя принято встречать с уважением,
+                    приглашать к дастархану и угощать лучшим.
+                </p>
+            </div>
+        </article>
+
+        <article class="culture-card">
+            <img
+              src="https://avatars.mds.yandex.net/get-vertis-journal/4471904/c60534e1-8425-40aa-83a4-763698e7f844.jpg/1600x1600" 
+                alt="Традиционная еда">
+
+            <div class="culture-card-content">
+                <span>02 / КУХНЯ</span>
+                <h3>Вкус казахских традиций</h3>
+                <p>
+                    Бешбармак, баурсаки, казы, курт и кумыс —
+                    блюда и напитки, которые занимают особое
+                    место в национальной кухне.
+                </p>
+            </div>
+        </article>
+
+        <article class="culture-card">
+            <img
+                src="https://img.inform.kz/kazinform-photobank/media/2025-07-04/9853946e-4c45-46d4-8ee1-5ac93d9b6e3f.jpeg"
+                alt="Музыкальное искусство">
+
+            <div class="culture-card-content">
+                <span>03 / МУЗЫКА</span>
+                <h3>Музыка великой степи</h3>
+                <p>
+                    Домбра, кобыз и жетіген — традиционные
+                    инструменты. А кюй — музыкальное
+                    произведение, способное рассказать целую историю.
+                </p>
+            </div>
+        </article>
+
+        <article class="culture-card">
+            <img
+                src="https://sputnik.kg/img/102908/80/1029088041_0:0:4024:2275_2072x0_60_0_0_1f2cac943ddc26867857fad9f96709b2.jpg"
+                alt="Спортивные состязания">
+
+            <div class="culture-card-content">
+                <span>04 / СПОРТ</span>
+                <h3>Сила и мастерство</h3>
+                <p>
+                    Көкпар, бәйге, қазақ күресі и асық ату —
+                    традиционные состязания, в которых
+                    важны ловкость, выносливость и мастерство.
+                </p>
+            </div>
+        </article>
+
+    </div>
+
+    <div class="culture-note">
+        <span>✦</span>
+        <p>
+            Наурыз — праздник весеннего обновления,
+            единства и добрых пожеланий. Его отмечают
+            во многих странах Центральной Азии.
+        </p>
+    </div>
+
+</section>
+<!-- END KAZAKH CULTURE -->
+
+
+
+<!-- EXPLORE -->
+
+<section class="section" id="explore">
+
+    <div class="section-heading">
+
+        <div>
+            <p class="eyebrow">EXPLORE THE REGION</p>
+            <h2>Исследуй <em>каждый уголок.</em></h2>
+        </div>
+
+        <p>
+            Популярные достопримечательности
+            и скрытые жемчужины Алматинского региона.
+        </p>
+
+    </div>
+
+
+    <div class="search-panel">
+
+        <input
+        type="text"
+        id="placeSearch"
+        placeholder="Найти достопримечательность...">
+
+        <select id="placeCategory">
+            <option value="all">Все категории</option>
+            <option value="nature">Природа</option>
+            <option value="water">Озёра и водопады</option>
+            <option value="mountain">Горы и ущелья</option>
+            <option value="historic">История и культура</option>
+            <option value="tourism">Туризм</option>
+        </select>
+
+        <button id="searchButton">Найти</button>
+
+    </div>
+
+    <p class="loading-text" id="loadingStatus">
+        Подготовка каталога...
+    </p>
+
+    <div class="catalog-layout">
+
+        <div class="places-list" id="placesList">
+            <p>Загрузка достопримечательностей...</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MAP -->
+
+<section class="section map-section" id="map-section">
+
+    <p class="eyebrow">INTERACTIVE MAP</p>
+
+    <h2>Исследуй регион <em>на карте.</em></h2>
+
+    <p class="section-description">
+        Выбирай места, смотри их расположение
+        и добавляй в свой маршрут.
+    </p>
+
+    <div class="map-toolbar">
+
+        <select id="mapArea">
+            <option value="all">Весь регион</option>
+            <option value="city">Алматы</option>
+            <option value="region">Алматинская область</option>
+        </select>
+
+        <button id="showAllButton">Показать все места</button>
+
+<button id="toiletsButton">
+    🚻 Показать туалеты
+</button>
+
+<button id="cafesButton">
+    ☕ Скрыть кафе
+</button>
+
+    </div>
+
+    <div id="mainMap"></div>
+
+    <p class="map-note">
+        Источник объектов: OpenStreetMap.
+        Данные могут быть неполными или содержать неточности.
+    </p>
+
+</section>
+
+
+<!-- ROUTE BUILDER -->
+
+<section class="section route-section" id="route-section">
+
+    <p class="eyebrow">SMART ROUTE BUILDER</p>
+
+    <h2>Собери свой <em>маршрут.</em></h2>
+
+    <p class="section-description">
+        Добавь несколько достопримечательностей
+        и построй автомобильный маршрут между ними.
+    </p>
+
+    <div class="route-box">
+
+        <div class="route-information">
+
+            <h3>Твои выбранные места</h3>
+
+            <div id="selectedPlaces">
+                <p>Пока ничего не выбрано.</p>
+            </div>
+
+            <button id="buildRouteButton" class="main-btn">
+                Построить маршрут →
+            </button>
+
+            <button id="clearRouteButton" class="clear-btn">
+                Очистить маршрут
+            </button>
+
+            <div id="routeInfo"></div>
+
+        </div>
+
+        <div class="route-map-wrapper">
+
+            <div id="routeMap"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PLANNER -->
+
+<section class="section planner-section" id="planner">
+
+    <div class="section-heading">
+
+        <div>
+            <p class="eyebrow">YOUR JOURNEY, YOUR RULES</p>
+
+            <h2>Создай путешествие<br>
+                <em>своей мечты.</em>
+            </h2>
+        </div>
+
+        <p>
+            Рассчитай бюджет, выбери транспорт,
+            проживание и продолжительность поездки.
+        </p>
+
+    </div>
+
+
+    <div class="planner-layout">
+
+        <form id="plannerForm" class="planner-form">
+
+            <h3>Параметры путешествия</h3>
+
+            <div class="form-group">
+                <label for="tripDestination">Направление</label>
+
+                <select id="tripDestination">
+                    <option>Алматы</option>
+                    <option>Алматинская область</option>
+                    <option>Кольсай и Каинды</option>
+                    <option>Чарынский каньон</option>
+                    <option>Алтын-Эмель</option>
+                    <option>Иссык</option>
+                    <option>Тургень</option>
+                    <option>Талгар</option>
+                </select>
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label for="tripDays">Количество дней</label>
+
+                    <select id="tripDays">
+                        <option value="1">1 день</option>
+                        <option value="2">2 дня</option>
+                        <option value="3" selected>3 дня</option>
+                        <option value="4">4 дня</option>
+                        <option value="5">5 дней</option>
+                        <option value="6">6 дней</option>
+                        <option value="7">7 дней</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="tripPeople">Количество людей</label>
+
+                    <input type="number"
+                    id="tripPeople"
+                    min="1"
+                    max="20"
+                    value="2">
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+                <label for="tripBudget">Общий бюджет (₸)</label>
+
+                <input type="number"
+                id="tripBudget"
+                value="80000"
+                min="1000">
+            </div>
+
+
+            <div class="form-group">
+                <label for="tripTransport">Транспорт</label>
+
+                <select id="tripTransport">
+                    <option value="any">Подобрать экономичный</option>
+                    <option value="car">Автомобиль</option>
+                    <option value="bus">Автобус</option>
+                    <option value="train">Поезд</option>
+                    <option value="taxi">Такси</option>
+                </select>
+            </div>
+
+
+            <div class="form-group">
+                <label for="tripStay">Проживание</label>
+
+                <select id="tripStay">
+                    <option value="any">Подобрать по бюджету</option>
+                    <option value="hotel">Отель</option>
+                    <option value="hostel">Хостел</option>
+                    <option value="apartment">Апартаменты</option>
+                    <option value="camping">Кемпинг</option>
+                    <option value="none">Без проживания</option>
+                </select>
+            </div>
+
+
+            <fieldset class="interests">
+
+                <legend>Интересы</legend>
+
+                <label><input type="checkbox" value="nature" name="interest" checked> Природа</label>
+
+                <label><input type="checkbox" value="mountain" name="interest"> Горы</label>
+
+                <label><input type="checkbox" value="water" name="interest"> Озёра</label>
+
+                <label><input type="checkbox" value="historic" name="interest"> История</label>
+
+                <label><input type="checkbox" value="adventure" name="interest"> Приключения</label>
+
+                <label><input type="checkbox" value="relax" name="interest"> Отдых</label>
+
+            </fieldset>
+
+
+            <button type="submit" class="main-btn submit-btn">
+                Рассчитать путешествие →
+            </button>
+
+        </form>
+
+
+        <div class="planner-result" id="plannerResult">
+
+            <div class="result-placeholder">
+                <span>✧</span>
+
+                <h3>
+                    Твоё путешествие<br>
+                    начинается здесь.
+                </h3>
+
+                <p>
+                    Заполни параметры,
+                    чтобы получить план поездки.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer class="footer">
+
+    <a href="#top" class="logo">QAZAQ<span>TRIP</span>.</a>
+
+    <p>Открой Алматы и Алматинскую область.</p>
+
+    <span>© 2026 QazaqTrip</span>
+
+</footer>
+
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="translations.js"></script>
+<script src="map.js"></script>
+<script src="planner.js"></script>
+<script src="trip.js"></script>
+
+<!-- ОКНО ИНФОРМАЦИИ О ДОСТОПРИМЕЧАТЕЛЬНОСТИ -->
+
+<div id="placeModal" class="place-modal">
+    <div class="place-modal-content">
+
+        <button class="close-modal"
+                onclick="closePlaceModal()">×</button>
+
+        <div id="placeModalBody">
+            Загрузка...
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
+ 
